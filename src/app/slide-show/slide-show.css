@@ -1,0 +1,95 @@
+
+.slider {
+  width: 600px;
+  margin: 80px auto;
+  text-align: center;
+  position: relative;
+  font-family: Arial, sans-serif;
+
+  border: #0056b3,solid,2px;
+}
+
+
+.slider > div:first-child {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.slider img[alt="slider image"] {
+  width: 300px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+.slider img[src*="arrow"] {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+
+.slider img[src*="left"] {
+  left: -10px;
+}
+
+.slider img[src*="right"] {
+  right: -10px;
+}
+
+
+.slider img[src*="arrow"]:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+
+.c {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+.c img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+
+.c img:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.Active{
+    src: url("/public/Slider/button.png");
+}

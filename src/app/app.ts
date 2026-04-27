@@ -1,9 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Footer } from './footer/footer';
+import { Header } from './header/header';
+import { TaskInput } from './Task-input/Task-input';
+import { TaskList } from './task-list/task-list';
+import { SlideShow } from './slide-show/slide-show';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,Footer,Header,TaskInput,TaskList,SlideShow],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
