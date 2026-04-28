@@ -1,0 +1,13 @@
+  .navbar {
+    padding: 14px 0;
+  }
+
+  .nav-link {
+    transition: 0.3s;
+    border-radius: 6px;
+    padding: 6px 12px;
+  }
+
+  .nav-link:hover {
+    background: rgba(255,255,255,0.1);
+  }

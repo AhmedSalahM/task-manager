@@ -1,12 +1,131 @@
-@if (task) {
-  <div class="task-card">
+<div class="card shadow-sm border mb-3 h-100 d-flex flex-column">
 
-    <h3>{{ task.title }}</h3>
-    <p>{{ task.description }}</p>
-    <p>Priority: {{ task.priority }}</p>
-    <p>Date: {{ task.date }}</p>
-    <p>Category: {{ task.category }}</p>
+  <div class="card-body d-flex flex-column">
 
-    <hr />
+    <!-- VIEW MODE -->
+    @if (!isEditMode) {
+
+      <!-- Title -->
+      <h5 class="fw-bold mb-2">
+        {{ task.title }}
+      </h5>
+
+      <!-- Description -->
+      <p class="text-muted mb-3 flex-grow-1">
+        {{ task.description }}
+      </p>
+
+      <!-- Meta -->
+      <div class="d-flex flex-wrap gap-2 mb-3">
+
+        <span class="badge bg-secondary px-2 py-1">
+          {{ task.priority }}
+        </span>
+
+        <span class="badge bg-info text-dark px-2 py-1">
+          {{ task.category }}
+        </span>
+
+        <span class="badge bg-light text-dark border px-2 py-1">
+          📅 {{ task.date }}
+        </span>
+
+      </div>
+
+      <hr class="my-2">
+
+      <!-- Actions -->
+      <div class="d-flex flex-wrap gap-2 mt-auto">
+
+        <button class="btn btn-success btn-sm px-3"
+                (click)="doneF()">
+          ✔ Done
+        </button>
+
+        <button class="btn btn-outline-primary btn-sm px-3"
+                (click)="updateF()">
+          ✏ Edit
+        </button>
+
+        <button class="btn btn-outline-danger btn-sm px-3"
+                (click)="deleteF()">
+          🗑 Delete
+        </button>
+
+      </div>
+
+    }
+
+    <!-- EDIT MODE -->
+    @else {
+
+      <!-- Header -->
+      <div class="mb-3 border-start border-4 border-primary ps-2">
+        <h6 class="text-primary fw-bold mb-0">Edit Task</h6>
+        <small class="text-muted">Update task details</small>
+      </div>
+
+      <!-- Form -->
+      <div class="mb-3">
+
+        <label class="form-label small text-muted">Title</label>
+        <input [(ngModel)]="editTask.title"
+               class="form-control mb-2"
+               placeholder="Task title">
+
+        <label class="form-label small text-muted">Description</label>
+        <textarea [(ngModel)]="editTask.description"
+                  class="form-control mb-3"
+                  rows="2"
+                  placeholder="Task description"></textarea>
+
+        <div class="row g-2 mb-2">
+
+          <div class="col-6">
+            <label class="form-label small text-muted">Priority</label>
+            <select [(ngModel)]="editTask.priority"
+                    class="form-select">
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+          </div>
+
+          <div class="col-6">
+            <label class="form-label small text-muted">Date</label>
+            <input type="date"
+                   [(ngModel)]="editTask.date"
+                   class="form-control">
+          </div>
+
+        </div>
+
+        <label class="form-label small text-muted">Category</label>
+        <select [(ngModel)]="editTask.category"
+                class="form-select mb-3">
+          <option>Work</option>
+          <option>Personal</option>
+          <option>Study</option>
+        </select>
+
+      </div>
+
+      <!-- Actions -->
+      <div class="d-flex justify-content-end gap-2 mt-auto">
+
+        <button class="btn btn-outline-secondary btn-sm px-3"
+                (click)="cancel()">
+          Cancel
+        </button>
+
+        <button class="btn btn-primary btn-sm px-3"
+                (click)="saveUpdate()">
+          💾 Save Changes
+        </button>
+
+      </div>
+
+    }
+
   </div>
-}
+</div>

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 
 export class SlideShow {
-images:string[]=["Slider/3.gif","Slider/3.gif","Slider/3.gif","Slider/4.gif","Slider/5.gif","Slider/6.gif"];
+images:string[]=["Slider/3.jpg","Slider/1.jpg","Slider/2.jpg","Slider/4.jpg","Slider/5.jpg","Slider/6.jpg"];
 index:number=0;
 dots:number[]=[0,1,2,3]
 dot(i:number){

@@ -1,0 +1,18 @@
+<p class="text-center text-muted mb-3">Not Done Tasks</p>
+
+<div class="row g-3">
+
+  @for (taskL of notDoneTasks; track taskL.id) {
+    <div class="col-12 col-md-6 col-lg-4">
+
+      <app-task-card
+        [task]="taskL"
+        (done)="onDone($event)"
+        (delete)="onDelete($event)"
+        (update)="onUpdate($event)">
+      </app-task-card>
+
+    </div>
+  }
+
+</div>

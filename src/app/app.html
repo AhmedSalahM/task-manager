@@ -1,8 +1,78 @@
 <app-header></app-header>
+
 <app-slide-show></app-slide-show>
-<div class="container">
-  <app-task-input (taskAdded)="onTaskAdded($event)"></app-task-input>
-  <app-task-list [TaskList]="tasks"></app-task-list>
+
+<div class="container my-4">
+
+  <!-- Task Input -->
+  <div class="mb-4">
+    <app-task-input (taskAdded)="onTaskAdded($event)"></app-task-input>
+  </div>
+
+  <!-- Tabs -->
+  <ul class="nav nav-pills justify-content-center mb-4 gap-2">
+
+    <li class="nav-item">
+      <button 
+        class="nav-link"
+        [class.active]="activeTab === 'all'"
+        (click)="activeTab = 'all'">
+        All
+      </button>
+    </li>
+
+    <li class="nav-item">
+      <button 
+        class="nav-link"
+        [class.active]="activeTab === 'done'"
+        (click)="activeTab = 'done'">
+        Done
+      </button>
+    </li>
+
+    <li class="nav-item">
+      <button 
+        class="nav-link"
+        [class.active]="activeTab === 'notDone'"
+        (click)="activeTab = 'notDone'">
+        Not Done
+      </button>
+    </li>
+
+  </ul>
+
+  <!-- Content -->
+  <div class="card shadow-sm border-0 p-3">
+
+    @if (activeTab === 'all') {
+      <app-task-list
+        [Tasks]="tasks"
+        (done)="onDone($event)"
+        (delete)="onDelete($event)"
+        (update)="onUpdate($event)">
+      </app-task-list>
+    }
+
+    @if (activeTab === 'done') {
+      <app-done-tasks
+        [Tasks]="tasks"
+        (done)="onDone($event)"
+        (delete)="onDelete($event)"
+        (update)="onUpdate($event)">
+      </app-done-tasks>
+    }
+
+    @if (activeTab === 'notDone') {
+      <app-not-done-tasks
+        [Tasks]="tasks"
+        (done)="onDone($event)"
+        (delete)="onDelete($event)"
+        (update)="onUpdate($event)">
+      </app-not-done-tasks>
+    }
+
+  </div>
+
 </div>
 
 <app-footer></app-footer>

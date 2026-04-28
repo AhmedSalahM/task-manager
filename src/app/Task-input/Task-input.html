@@ -1,22 +1,70 @@
-<div class="task-input">
-  <label>Task Title</label>
-  <input [(ngModel)]="curTask.title" type="text" placeholder="Task Title" />
-  <label>Description</label>
-  <textarea [(ngModel)]="curTask.description" placeholder="Description"></textarea>
-<label>Priorty</label>
-  <select [(ngModel)]="curTask.priority">
-    <option>Low</option>
-    <option>Medium</option>
-    <option>High</option>
-  </select>
-<label>Date</label>
-  <input [(ngModel)]="curTask.date" type="date" />
-<label>Category</label>
-  <select [(ngModel)]="curTask.category">
-    <option>Work</option>
-    <option>Personal</option>
-    <option>Study</option>
-  </select>
+<div class="container my-4">
 
-  <button (click)="addTask()">Add Task</button>
+  <div class="card shadow-lg border-0">
+    <div class="card-body p-4">
+
+      <h4 class="mb-4 text-center fw-bold">Add New Task</h4>
+
+      <!-- Title -->
+      <div class="mb-3">
+        <label class="form-label">Task Title</label>
+        <input 
+          [(ngModel)]="curTask.title"
+          type="text"
+          class="form-control"
+          placeholder="Enter task title">
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea 
+          [(ngModel)]="curTask.description"
+          class="form-control"
+          rows="3"
+          placeholder="Enter description"></textarea>
+      </div>
+
+      <!-- Priority + Date -->
+      <div class="row mb-3">
+
+        <div class="col-md-6">
+          <label class="form-label">Priority</label>
+          <select [(ngModel)]="curTask.priority" class="form-select">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Date</label>
+          <input 
+            [(ngModel)]="curTask.date"
+            type="date"
+            class="form-control">
+        </div>
+
+      </div>
+
+      <!-- Category -->
+      <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select [(ngModel)]="curTask.category" class="form-select">
+          <option>Work</option>
+          <option>Personal</option>
+          <option>Study</option>
+        </select>
+      </div>
+
+      <!-- Button -->
+      <button 
+        (click)="addTask()"
+        class="btn btn-primary w-100 py-2 fw-semibold">
+        Add Task
+      </button>
+
+    </div>
+  </div>
+
 </div>

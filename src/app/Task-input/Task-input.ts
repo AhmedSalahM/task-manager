@@ -22,6 +22,16 @@ title : '',
   @Output() taskAdded=new EventEmitter<Task>();
   addTask() {
    this.curTask.id=uuidv4();
+     if (
+    !this.curTask.title?.trim() ||
+    !this.curTask.description?.trim() ||
+    !this.curTask.date?.trim() ||
+    !this.curTask.category?.trim() ||
+    !this.curTask.priority?.trim()
+  ) {
+    alert('Please fill all fields');
+    return;
+  }
     
 this.taskAdded.emit(this.curTask)
     console.log(this.curTask);

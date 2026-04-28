@@ -3,15 +3,18 @@ import { TaskCard } from '../task-card/task-card';
 import { Task } from '../Task-input/Task-input';
 
 @Component({
-  selector: 'app-task-list',
+  selector: 'app-done-tasks',
   imports: [TaskCard],
-  templateUrl: './task-list.html',
-  styleUrl: './task-list.css',
+  templateUrl: './done-tasks.html',
+  styleUrl: './done-tasks.css',
 })
-export class TaskList {
-
-  @Input() Tasks:Task[]=[];
-  @Output() done = new EventEmitter<Task>();
+export class DoneTasks {
+   @Input() Tasks:Task[]=[];
+     get doneTasks() {
+    return this.Tasks.filter(t => t.done === true);
+  }
+  
+ @Output() done = new EventEmitter<Task>();
   @Output() delete = new EventEmitter<Task>();
   @Output() update = new EventEmitter<Task>();
   

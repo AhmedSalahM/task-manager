@@ -1,27 +1,44 @@
-<div class="slider">
+<div class="container my-4 text-center">
 
-  <div>
- <img src="Slider/left-arrow.png" (click)="prev()">
-  <img [src]="images[index]" alt="slider image" width="300px" height="500px">
- <img src="Slider/right-arrow.png" (click)="next()">
-</div>
-<!-- <div class="c">
-    <img id="0" [src]="index === 0 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot(0)">
-    <img id="1"  [src]="index === 1 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot(1)" >
-    <img id="2"  [src]="index === 2 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot(2)">
-    <img id="3"  [src]="index === 3 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot(3)">
-</div> -->
-<div class="c">
-   @for (img of images; track $index; let i = $index) {
+  <!-- Slider Wrapper -->
+  <div class="d-flex align-items-center justify-content-center gap-3">
+
+    <!-- Left Arrow -->
     <img 
-      [id]="i"
-      [src]="index === i ? 'Slider/button.png' : 'Slider/rec.png'"
-      (click)="dot(i)">
-  }
-</div>
+      src="Slider/left-arrow.png" 
+      (click)="prev()" 
+      style="width:40px; cursor:pointer;">
 
-  
-   <button (click)="toggleSlide()">
+    <!-- Main Image -->
+    <img 
+      [src]="images[index]" 
+      alt="slider image"
+      class="rounded shadow"
+      style="width:300px; height:500px; object-fit:cover;">
+
+    <!-- Right Arrow -->
+    <img 
+      src="Slider/right-arrow.png" 
+      (click)="next()" 
+      style="width:40px; cursor:pointer;">
+
+  </div>
+
+  <!-- Dots -->
+  <div class="mt-3 d-flex justify-content-center gap-2">
+    @for (img of images; track $index; let i = $index) {
+      <img 
+        [id]="i"
+        (click)="dot(i)"
+        [src]="index === i ? 'Slider/button.png' : 'Slider/rec.png'"
+        style="width:12px; cursor:pointer;">
+    }
+  </div>
+
+  <!-- Button -->
+  <button 
+    class="btn btn-primary mt-3 px-4"
+    (click)="toggleSlide()">
     {{ isPlaying ? 'Stop' : 'Start Slideshow' }}
   </button>
 
