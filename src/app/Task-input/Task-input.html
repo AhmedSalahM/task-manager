@@ -1,20 +1,22 @@
 <div class="task-input">
-  <input type="text" placeholder="Task Title" />
-  <textarea placeholder="Description"></textarea>
-
-  <select>
+  <label>Task Title</label>
+  <input [(ngModel)]="curTask.title" type="text" placeholder="Task Title" />
+  <label>Description</label>
+  <textarea [(ngModel)]="curTask.description" placeholder="Description"></textarea>
+<label>Priorty</label>
+  <select [(ngModel)]="curTask.priority">
     <option>Low</option>
     <option>Medium</option>
     <option>High</option>
   </select>
-
-  <input type="date" />
-
-  <select>
+<label>Date</label>
+  <input [(ngModel)]="curTask.date" type="date" />
+<label>Category</label>
+  <select [(ngModel)]="curTask.category">
     <option>Work</option>
     <option>Personal</option>
     <option>Study</option>
   </select>
 
-  <button>Add Task</button>
+  <button (click)="addTask()">Add Task</button>
 </div>

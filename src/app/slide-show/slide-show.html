@@ -5,11 +5,19 @@
   <img [src]="images[index]" alt="slider image" width="300px" height="500px">
  <img src="Slider/right-arrow.png" (click)="next()">
 </div>
+<!-- <div class="c">
+    <img id="0" [src]="index === 0 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot(0)">
+    <img id="1"  [src]="index === 1 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot(1)" >
+    <img id="2"  [src]="index === 2 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot(2)">
+    <img id="3"  [src]="index === 3 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot(3)">
+</div> -->
 <div class="c">
-    <img id="0" [src]="index === 0 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot($event)">
-    <img id="1"  [src]="index === 1 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot($event)" >
-    <img id="2"  [src]="index === 2 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot($event)">
-    <img id="3"  [src]="index === 3 ? 'Slider/button.png' : 'Slider/rec.png'" (click)="dot($event)">
+   @for (img of images; track $index; let i = $index) {
+    <img 
+      [id]="i"
+      [src]="index === i ? 'Slider/button.png' : 'Slider/rec.png'"
+      (click)="dot(i)">
+  }
 </div>
 
   

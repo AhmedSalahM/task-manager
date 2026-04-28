@@ -6,12 +6,14 @@ import { Component } from '@angular/core';
   templateUrl: './slide-show.html',
   styleUrl: './slide-show.css',
 })
+
 export class SlideShow {
-images:string[]=["Slider/3.gif","Slider/4.gif","Slider/5.gif","Slider/6.gif"];
+images:string[]=["Slider/3.gif","Slider/3.gif","Slider/3.gif","Slider/4.gif","Slider/5.gif","Slider/6.gif"];
 index:number=0;
-dot(e:Event){
-  const d:HTMLElement = e.target as HTMLElement;
-  this.index=Number( d.getAttribute("id"));
+dots:number[]=[0,1,2,3]
+dot(i:number){
+  
+  this.index=i;
  
 }
 next(){

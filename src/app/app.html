@@ -1,8 +1,8 @@
 <app-header></app-header>
 <app-slide-show></app-slide-show>
 <div class="container">
-  <app-task-input></app-task-input>
-  <app-task-list></app-task-list>
+  <app-task-input (taskAdded)="onTaskAdded($event)"></app-task-input>
+  <app-task-list [TaskList]="tasks"></app-task-list>
 </div>
 
 <app-footer></app-footer>

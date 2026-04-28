@@ -1,2 +1,15 @@
 
-<app-task-card></app-task-card>
+@for(taskL of TaskList track task.id){
+<app-task-card [task]="taskL"></app-task-card>
+}
+
+<!-- <div>
+  @for (task of TaskList; track task) {
+    <h3>{{ task.title }}</h3>
+    <p>{{ task.description }}</p>
+    <p>Priority: {{ task.priority }}</p>
+    <p>Date: {{ task.date }}</p>
+    <p>Category: {{ task.category }}</p>
+    <hr />
+  }
+</div> -->
