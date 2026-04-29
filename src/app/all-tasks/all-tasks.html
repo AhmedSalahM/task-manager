@@ -1,0 +1,28 @@
+<div class="row g-3 align-items-stretch">
+
+  @for (taskL of Tasks; track taskL.id) {
+    <div class="col-12 col-md-6 col-lg-4 d-flex">
+
+      <app-task-card
+        class="w-100 h-100 d-flex flex-column"
+        [task]="taskL"
+        (done)="onDone($event)"
+        (delete)="onDelete($event)"
+        (update)="onUpdate($event)">
+      </app-task-card>
+
+    </div>
+  }
+
+</div>
+
+<!-- <div>
+  @for (task of TaskList; track task) {
+    <h3>{{ task.title }}</h3>
+    <p>{{ task.description }}</p>
+    <p>Priority: {{ task.priority }}</p>
+    <p>Date: {{ task.date }}</p>
+    <p>Category: {{ task.category }}</p>
+    <hr />
+  }
+</div> -->

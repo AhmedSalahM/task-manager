@@ -5,12 +5,15 @@
 <div class="container my-4">
 
   <!-- Task Input -->
+   <app-notification-center #notify></app-notification-center>
   <div class="mb-4">
     <app-task-input (taskAdded)="onTaskAdded($event)"></app-task-input>
   </div>
-
+<app-task-list [task]="task"
+[notificationCenter]="notify"
+></app-task-list>
   <!-- Tabs -->
-  <ul class="nav nav-pills justify-content-center mb-4 gap-2">
+  <!-- <ul class="nav nav-pills justify-content-center mb-4 gap-2">
 
     <li class="nav-item">
       <button 
@@ -39,18 +42,18 @@
       </button>
     </li>
 
-  </ul>
+  </ul> -->
 
   <!-- Content -->
-  <div class="card shadow-sm border-0 p-3">
+  <!-- <div class="card shadow-sm border-0 p-3">
 
     @if (activeTab === 'all') {
-      <app-task-list
+      <app-all-tasks
         [Tasks]="tasks"
         (done)="onDone($event)"
         (delete)="onDelete($event)"
         (update)="onUpdate($event)">
-      </app-task-list>
+      </app-all-tasks>
     }
 
     @if (activeTab === 'done') {
@@ -71,7 +74,7 @@
       </app-not-done-tasks>
     }
 
-  </div>
+  </div> -->
 
 </div>
 

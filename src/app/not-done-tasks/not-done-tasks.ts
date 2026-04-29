@@ -11,9 +11,7 @@ import { Task } from '../Task-input/Task-input';
 export class NotDoneTasks {
 
    @Input() Tasks:Task[]=[];
-   get notDoneTasks() {
-    return this.Tasks.filter(t => t.done === false);
-  }
+ 
   
    @Output() done = new EventEmitter<Task>();
   @Output() delete = new EventEmitter<Task>();

@@ -1,6 +1,65 @@
-<div class="row g-3 align-items-stretch">
 
-  @for (taskL of Tasks; track taskL.id) {
+<div class="card shadow-sm border-0 p-3">
+ <!-- Tabs -->
+  <ul class="nav nav-pills justify-content-center mb-4 gap-2">
+
+    <li class="nav-item">
+      <button 
+        class="nav-link"
+        [class.active]="activeTab === 'all'"
+        (click)="activeTab = 'all'">
+        All
+      </button>
+    </li>
+
+    <li class="nav-item">
+      <button 
+        class="nav-link"
+        [class.active]="activeTab === 'done'"
+        (click)="activeTab = 'done'">
+        Done
+      </button>
+    </li>
+
+    <li class="nav-item">
+      <button 
+        class="nav-link"
+        [class.active]="activeTab === 'notDone'"
+        (click)="activeTab = 'notDone'">
+        Not Done
+      </button>
+    </li>
+
+  </ul>
+    @if (activeTab === 'all') {
+      <app-all-tasks
+        [Tasks]="tasks"
+        (done)="onDone($event)"
+        (delete)="onDelete($event)"
+        (update)="onUpdate($event)">
+      </app-all-tasks>
+    }
+
+    @if (activeTab === 'done') {
+      <app-done-tasks
+        [Tasks]="doneTasks"
+        (done)="onDone($event)"
+        (delete)="onDelete($event)"
+        (update)="onUpdate($event)">
+      </app-done-tasks>
+    }
+
+    @if (activeTab === 'notDone') {
+      <app-not-done-tasks
+        [Tasks]="notDoneTasks"
+        (done)="onDone($event)"
+        (delete)="onDelete($event)"
+        (update)="onUpdate($event)">
+      </app-not-done-tasks>
+    }
+
+  </div>
+  <!-- @for (taskL of Tasks; track taskL.id) {
     <div class="col-12 col-md-6 col-lg-4 d-flex">
 
       <app-task-card
@@ -14,7 +73,7 @@
     </div>
   }
 
-</div>
+</div> -->
 
 <!-- <div>
   @for (task of TaskList; track task) {

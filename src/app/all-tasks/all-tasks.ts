@@ -3,16 +3,15 @@ import { TaskCard } from '../task-card/task-card';
 import { Task } from '../Task-input/Task-input';
 
 @Component({
-  selector: 'app-done-tasks',
+  selector: 'app-all-tasks',
   imports: [TaskCard],
-  templateUrl: './done-tasks.html',
-  styleUrl: './done-tasks.css',
+  templateUrl: './all-tasks.html',
+  styleUrl: './all-tasks.css',
 })
-export class DoneTasks {
-   @Input() Tasks:Task[]=[];
-  
-  
- @Output() done = new EventEmitter<Task>();
+export class AllTasks {
+
+@Input() Tasks:Task[]=[];
+  @Output() done = new EventEmitter<Task>();
   @Output() delete = new EventEmitter<Task>();
   @Output() update = new EventEmitter<Task>();
   
@@ -27,4 +26,5 @@ onDelete(task: Task) {
 onUpdate(updatedTask: Task) {
   this.update.emit(updatedTask);
 }
+
 }

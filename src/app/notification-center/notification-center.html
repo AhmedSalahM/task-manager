@@ -1,0 +1,21 @@
+<p>notification-center works!</p>
+<div class="notification-box">
+
+  @for (n of notifications; track n.id) {
+
+    <div class="alert"
+         [ngClass]="{
+           'alert-success': n.type === 'success',
+           'alert-info': n.type === 'info',
+           'alert-warning': n.type === 'warning'
+         }">
+
+      {{ n.message }}
+
+      <button (click)="remove(n.id)">×</button>
+
+    </div>
+
+  }
+
+</div>
