@@ -34,24 +34,36 @@ prev(){
 isPlaying: boolean = false;
   intervalId: any;
 
-  startSlide() {
+  // startSlide() {
+  //   this.isPlaying = true;
+  //   this.intervalId = setInterval(() => {
+  //     this.index = (this.index + 1) % this.images.length;
+  //   }, 2000); 
+  // }
+
+  // stopSlide() {
+  //   this.isPlaying = false;
+  //   clearInterval(this.intervalId);
+  // }
+   ngOnInit() {
     this.isPlaying = true;
     this.intervalId = setInterval(() => {
-      this.index = (this.index + 1) % this.images.length;
-    }, 2000); 
+      this.next();
+    }, 2000);
   }
 
-  stopSlide() {
+  ngOnDestroy() {
     this.isPlaying = false;
     clearInterval(this.intervalId);
   }
 
-  toggleSlide() {
-    if (this.isPlaying) {
-      this.stopSlide();
-    } else {
-      this.startSlide();
-    }}
+
+  // toggleSlide() {
+  //   if (this.isPlaying) {
+  //     this.stopSlide();
+  //   } else {
+  //     this.startSlide();
+  //   }}
 
 
 }
