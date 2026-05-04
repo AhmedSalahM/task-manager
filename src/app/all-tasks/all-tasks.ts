@@ -21,10 +21,10 @@ export class AllTasks {
   this.done.emit(task);
 }
 tasks=signal<Task[]|null>(null);
-// ngOnInit(){
-//   this.taskServ.getAllTasks();
-// // this.taskServ.getAllTasks().subscribe((data)=>this.tasks.set(data));
-// }
+ngOnInit(){
+  this.taskServ.getAllTasks();
+// this.taskServ.getAllTasks().subscribe((data)=>this.tasks.set(data));
+}
 onDelete(task: Task) {
   this.delete.emit(task);
 }
