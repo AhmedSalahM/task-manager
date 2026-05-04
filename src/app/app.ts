@@ -20,18 +20,18 @@ export class App {
 
 //task:Task|null=null;
   //tasks: Task[] = [];
-  task!:Task;
+//   task!:Task;
 
-@ViewChild('notify') notify!: NotificationCenter;
-onTaskAdded(task: Task) {
-  //this.tasks.push({...task});
+// @ViewChild('notify') notify!: NotificationCenter;
+// onTaskAdded(task: Task) {
+//   //this.tasks.push({...task});
   
-  this.task = { ...task };
-  this.notify.add(
-  'Task created successfully',
-  'success'
-);
-}
+//   this.task = { ...task };
+//   this.notify.add(
+//   'Task created successfully',
+//   'success'
+// );
+// }
 // onDone(task: Task) {
 //   task.done = true;
 // }

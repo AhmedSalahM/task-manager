@@ -42,7 +42,7 @@
 
     @if (activeTab === 'done') {
       <app-done-tasks
-        [Tasks]="doneTasks"
+        [Tasks]="doneTasks()"
         (done)="onDone($event)"
         (delete)="onDelete($event)"
         (update)="onUpdate($event)">
@@ -51,7 +51,7 @@
 
     @if (activeTab === 'notDone') {
       <app-not-done-tasks
-        [Tasks]="notDoneTasks"
+        [Tasks]="notDoneTasks()"
         (done)="onDone($event)"
         (delete)="onDelete($event)"
         (update)="onUpdate($event)">

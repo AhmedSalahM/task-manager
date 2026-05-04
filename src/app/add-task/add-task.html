@@ -1,0 +1,11 @@
+<p>add-task works!</p>
+ <div class="container my-4">
+
+  
+   <app-notification-center #notify></app-notification-center>
+  <div class="mb-4">
+    <app-task-input (taskAdded)="onTaskAdded($event)"></app-task-input>
+  </div>
+  
+<app-tasks [task]="task"></app-tasks>
+</div>

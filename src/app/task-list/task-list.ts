@@ -31,10 +31,10 @@ export class TaskList {
     }
   }
 
- get doneTasks() {
+  doneTasks() {
     return this.tasks.filter(t => t.done === true);
   }
-    get notDoneTasks() {
+   notDoneTasks() {
     return this.tasks.filter(t => t.done === false);
   }
   onDone(task: Task) {
