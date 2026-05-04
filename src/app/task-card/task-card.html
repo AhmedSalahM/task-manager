@@ -37,11 +37,19 @@
       <!-- Actions -->
       <div class="d-flex flex-wrap gap-2 mt-auto">
 
+       @if (!task.done) {
         <button class="btn btn-success btn-sm px-3"
                 (click)="doneF()">
           ✔ Done
         </button>
+      }
 
+      @if (task.done) {
+        <button class="btn btn-warning btn-sm px-3"
+                (click)="undoF()">
+          ↩ Undo
+        </button>
+}
         <button class="btn btn-outline-primary btn-sm px-3"
                 (click)="updateF()">
           ✏ Edit

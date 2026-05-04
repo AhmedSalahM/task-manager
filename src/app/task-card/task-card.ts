@@ -1,8 +1,9 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Task } from '../Task-input/Task-input';
 import { CommonModule } from '@angular/common';
+import { Taskservice } from '../services/taskservice';
 
 @Component({
   selector: 'app-task-card',
@@ -21,16 +22,17 @@ export class TaskCard {
   isEditMode = false;
   editTask!: Task;
 
+taskServ=inject(Taskservice);
   ngOnInit() {
     this.editTask = { ...this.task }; // clone
   }
 
   doneF() {
-    this.done.emit(this.task);
+   this.taskServ.onDone(this.task);
   }
 
   deleteF() {
-    this.delete.emit(this.task);
+   this.taskServ.onDelete(this.task);
   }
 
   updateF() {
@@ -41,9 +43,13 @@ export class TaskCard {
   saveUpdate() {
     this.update.emit(this.editTask);
     this.isEditMode = false;
+    this.taskServ.onUpdate(this.editTask);
   }
-
+undoF() {
+  this.taskServ.onUndo(this.task);
+}
   cancel() {
     this.isEditMode = false;
   }
+
 }

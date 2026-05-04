@@ -3,8 +3,8 @@
 </p>
 
 <div class="row g-3">
-
-  @for (taskL of Tasks; track taskL.id) {
+@if(taskServ.getDoneTasks().length!=0){
+  @for (taskL of taskServ.getDoneTasks(); track taskL.id) {
     <div class="col-12 col-md-6 col-lg-4">
 
       <app-task-card
@@ -16,5 +16,5 @@
 
     </div>
   }
-
+}
 </div>

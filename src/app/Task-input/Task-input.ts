@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';
+import { Taskservice } from '../services/taskservice';
 
 @Component({
   selector: 'app-task-input',
@@ -9,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrl: './task-input.css',
 })
 export class TaskInput {
+  taskserv=inject(Taskservice)
   curTask:Task={
     id:" ",
 title : '',
@@ -35,6 +37,7 @@ title : '',
     
 this.taskAdded.emit(this.curTask)
     console.log(this.curTask);
+    this.taskserv.addTask({...this.curTask});
   }
 
 

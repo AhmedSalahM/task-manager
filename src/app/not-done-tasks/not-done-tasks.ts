@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { TaskCard } from '../task-card/task-card';
 import { Task } from '../Task-input/Task-input';
+import { Taskservice } from '../services/taskservice';
 
 @Component({
   selector: 'app-not-done-tasks',
@@ -11,7 +12,7 @@ import { Task } from '../Task-input/Task-input';
 export class NotDoneTasks {
 
    @Input() Tasks:Task[]=[];
- 
+ taskServ=inject(Taskservice);
   
    @Output() done = new EventEmitter<Task>();
   @Output() delete = new EventEmitter<Task>();
@@ -27,5 +28,6 @@ onDelete(task: Task) {
 
 onUpdate(updatedTask: Task) {
   this.update.emit(updatedTask);
+
 }
 }

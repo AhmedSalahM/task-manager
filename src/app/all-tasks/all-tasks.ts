@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { TaskCard } from '../task-card/task-card';
 import { Task } from '../Task-input/Task-input';
+import { Taskservice } from '../services/taskservice';
 
 @Component({
   selector: 'app-all-tasks',
@@ -14,10 +15,11 @@ export class AllTasks {
   @Output() done = new EventEmitter<Task>();
   @Output() delete = new EventEmitter<Task>();
   @Output() update = new EventEmitter<Task>();
-  
+  taskServ=inject(Taskservice);
   onDone(task: Task) {
   this.done.emit(task);
 }
+
 
 onDelete(task: Task) {
   this.delete.emit(task);
