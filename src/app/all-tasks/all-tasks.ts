@@ -1,7 +1,8 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output, signal } from '@angular/core';
 import { TaskCard } from '../task-card/task-card';
 import { Task } from '../Task-input/Task-input';
 import { Taskservice } from '../services/taskservice';
+import { Tasks } from '../tasks/tasks';
 
 @Component({
   selector: 'app-all-tasks',
@@ -19,8 +20,11 @@ export class AllTasks {
   onDone(task: Task) {
   this.done.emit(task);
 }
-
-
+tasks=signal<Task[]|null>(null);
+// ngOnInit(){
+//   this.taskServ.getAllTasks();
+// // this.taskServ.getAllTasks().subscribe((data)=>this.tasks.set(data));
+// }
 onDelete(task: Task) {
   this.delete.emit(task);
 }

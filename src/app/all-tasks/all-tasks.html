@@ -1,6 +1,6 @@
 <div class="row g-3 align-items-stretch">
-@if(taskServ.getAllTasks().length!=0){
-  @for (taskL of taskServ.getAllTasks(); track taskL.id) {
+@if(taskServ.tasks().length){
+  @for (taskL of taskServ.tasks(); track taskL.id) {
     <div class="col-12 col-md-6 col-lg-4 d-flex">
 
       <app-task-card

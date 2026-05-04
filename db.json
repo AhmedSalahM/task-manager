@@ -1,0 +1,76 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Learn Angular",
+      "description": "Study components",
+      "priority": "High",
+      "date": "2026-05-04",
+      "category": "Work",
+      "done": true
+    },
+    {
+      "id": "bglPgczkxGA",
+      "title": "Learn AI",
+      "description": "jshybdvvgd",
+      "priority": "Low",
+      "date": "2026-05-05",
+      "category": "Work",
+      "done": true
+    },
+    {
+      "id": "npOUwTvB4bU",
+      "title": "New",
+      "description": "kmlsnbde",
+      "priority": "Low",
+      "date": "2026-05-13",
+      "category": "Work",
+      "done": true
+    },
+    {
+      "id": "t6l8K54lOq0",
+      "title": "New",
+      "description": "kmlsnbde",
+      "priority": "Low",
+      "date": "2026-05-13",
+      "category": "Work",
+      "done": true
+    },
+    {
+      "id": "I4COeAWoQZk",
+      "title": "tra",
+      "description": "kmlsnbde",
+      "priority": "Low",
+      "date": "2026-05-13",
+      "category": "Work",
+      "done": false
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Ali",
+      "email": "ali@test.com",
+      "password": "123456"
+    },
+    {
+      "id": "YHpE09KPAm8",
+      "name": "Ahmed",
+      "email": "a@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "VHlWft-3Is4",
+      "name": "Marwan",
+      "email": "m@gm.com",
+      "password": "123456"
+    },
+    {
+      "id": "ecbqFPWE6Aw",
+      "name": "test",
+      "email": "t@test.com",
+      "password": "123456"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -35,9 +35,10 @@ title : '',
     return;
   }
     
-this.taskAdded.emit(this.curTask)
-    console.log(this.curTask);
-    this.taskserv.addTask({...this.curTask});
+// this.taskAdded.emit(this.curTask)
+//     console.log(this.curTask);
+//     this.taskserv.addTask({...this.curTask});
+this.taskserv.addTask({ ...this.curTask });
   }
 
 

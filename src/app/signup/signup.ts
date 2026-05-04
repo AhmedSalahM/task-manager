@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { Authservice } from '../services/authservice';
 
 @Component({
   selector: 'app-signup',
@@ -9,6 +10,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './signup.css',
 })
 export class Signup {
+   authService = inject(Authservice);
+  router = inject(Router);
    signupForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -31,6 +34,27 @@ export class Signup {
     }
 
     console.log("Signup Data:", this.signupForm);
+const email = data.email ?? '';
+
+    const user = {
+      id: crypto.randomUUID(),
+      name: data.name,
+      email: data.email,
+      password: data.password
+    };
+this.authService.getUserByEmail(email).subscribe(res => {
+  if (res.length > 0) {
+
+    alert("Email already exists");
+     return;
+  }
+   this.authService.signup(user).subscribe(() => {
+      alert("User created successfully");
+      this.router.navigate(['signin']);
+    });
+  
+});
+   
     // API call here
   }
 }

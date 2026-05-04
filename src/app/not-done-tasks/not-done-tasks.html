@@ -1,8 +1,8 @@
 <p class="text-center text-muted mb-3">Not Done Tasks</p>
 
 <div class="row g-3">
-@if(taskServ.getNotDoneTasks().length!=0){
-  @for (taskL of taskServ.getNotDoneTasks(); track taskL.id) {
+@if(taskServ.notDoneTasks().length!=0){
+  @for (taskL of taskServ.notDoneTasks(); track taskL.id) {
     <div class="col-12 col-md-6 col-lg-4">
 
       <app-task-card
