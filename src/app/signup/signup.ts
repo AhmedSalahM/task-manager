@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Authservice } from '../services/authservice';
+import { NotificationService } from '../services/notification-service';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +19,7 @@ export class Signup {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required])
   });
-
+notification = inject(NotificationService);
  get f(){
   return this.signupForm.controls;
  }
@@ -45,11 +46,13 @@ const email = data.email ?? '';
 this.authService.getUserByEmail(email).subscribe(res => {
   if (res.length > 0) {
 
-    alert("Email already exists");
+    //alert("Email already exists");
+    this.notification.show('Email already exists', 'warning');
      return;
   }
    this.authService.signup(user).subscribe(() => {
-      alert("User created successfully");
+      //alert("User created successfully");
+      this.notification.show('User created successfully', 'success');
       this.router.navigate(['signin']);
     });
   

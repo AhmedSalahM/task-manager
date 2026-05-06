@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component ,inject} from '@angular/core';
+
+import { NotificationService } from '../services/notification-service';
 
 @Component({
   selector: 'app-notification-center',
@@ -8,20 +10,22 @@ import { Component } from '@angular/core';
   styleUrl: './notification-center.css',
 })
 export class NotificationCenter {
-    notifications: Notification[] = [];
+   notification = inject(NotificationService);
+  toasts = this.notification.toasts;
+  //   notifications: Notification[] = [];
 
-  add(message: string, type: Notification['type'] = 'info') {
-    this.notifications.unshift({
-      id: crypto.randomUUID(),
-      message,
-      type,
-      date: new Date()
-    });
-  }
+  // add(message: string, type: Notification['type'] = 'info') {
+  //   this.notifications.unshift({
+  //     id: crypto.randomUUID(),
+  //     message,
+  //     type,
+  //     date: new Date()
+  //   });
+  // }
 
-  remove(id: string) {
-    this.notifications = this.notifications.filter(n => n.id !== id);
-  }
+  // remove(id: string) {
+  //   this.notifications = this.notifications.filter(n => n.id !== id);
+  // }
 
 }
 export interface Notification {

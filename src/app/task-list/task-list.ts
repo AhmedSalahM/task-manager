@@ -41,28 +41,28 @@ export class TaskList {
 this.tasks = this.tasks.map(t =>
   t.id === task.id ? { ...t, done: true } : t
 );
-this.notificationCenter.add(
-  'Task marked as done',
-  'info'
-);
+// this.notificationCenter.add(
+//   'Task marked as done',
+//   'info'
+// );
 }
 
 onDelete(task: Task) {
   this.tasks = this.tasks.filter(t => t.id !== task.id);
-  this.notificationCenter.add(
-  'Task deleted',
-  'warning'
-);
+//   this.notificationCenter.add(
+//   'Task deleted',
+//   'warning'
+// );
 }
 
 onUpdate(updatedTask: Task) {
   this.tasks = this.tasks.map(t =>
     t.id === updatedTask.id ? updatedTask : t
   );
-  this.notificationCenter.add(
-  'Task updated successfully',
-  'success'
-);
+//   this.notificationCenter.add(
+//   'Task updated successfully',
+//   'success'
+// );
 }
   
 }

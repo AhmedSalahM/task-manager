@@ -19,10 +19,10 @@ onTaskAdded(task: Task) {
   //this.tasks.push({...task});
 console.log("hhhhhhhhhhhhhhhhhhhhhhh:",this.notify);
   this.task = { ...task };
-  this.notify.add(
-  'Task created successfully',
-  'success'
-);
+//   this.notify.add(
+//   'Task created successfully',
+//   'success'
+// );
 
 }
 }

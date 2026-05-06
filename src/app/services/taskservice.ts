@@ -1,13 +1,14 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { Task } from '../Task-input/Task-input';
 import { Api } from './api';
+import { NotificationService } from './notification-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Taskservice {
   api = inject(Api);
-
+notification = inject(NotificationService);
 tasks=signal<Task[]>([]);
 endpoint = 'tasks';
 url=this.api.baseUrl+"/"+this.endpoint;
@@ -18,6 +19,7 @@ addTask(task:Task){
      this.api.http.post<Task>(this.url, task)
     .subscribe(newTask => {
       this.tasks.set([...this.tasks(), newTask]);
+       this.notification.show('Task added', 'success');
     });
 }
 getAllTasks(){
@@ -47,6 +49,7 @@ onDone(task: Task) {
       this.tasks.set(
         this.tasks().map(t => t.id === task.id ? updated : t)
       );
+      this.notification.show('Task completed', 'success');
     });
 }
 onUndo(task: Task) {
@@ -57,6 +60,7 @@ onUndo(task: Task) {
       this.tasks.set(
         this.tasks().map(t => t.id === task.id ? updated : t)
       );
+      this.notification.show('Task marked as not done', 'info');
     });
 }
 onDelete(task: Task) {
@@ -65,6 +69,7 @@ onDelete(task: Task) {
       this.tasks.set(
         this.tasks().filter(t => t.id !== task.id)
       );
+      this.notification.show('Task deleted', 'warning');
     });
   // this.tasks.set(this.tasks().filter(t => t.id !== task.id));
 //   this.notificationCenter.add(
@@ -82,6 +87,7 @@ onUpdate(updatedTask: Task) {
           t.id === updatedTask.id ? updatedTask : t
         )
       );
+       this.notification.show('Task updated', 'success');
     });
 
   // this.tasks.set(this.tasks().map(t =>
